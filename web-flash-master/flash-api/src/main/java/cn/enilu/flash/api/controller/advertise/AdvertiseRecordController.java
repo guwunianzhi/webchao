@@ -51,7 +51,7 @@ public class AdvertiseRecordController extends BaseController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST, produces = "application/json")
-    public Object delete(@RequestParam Long id){
+    public Object delete(@RequestParam Long id) {
         AdvertiseRecord advertiseRecord = advertiseRecordService.get(id);
         advertiseRecord.setStatus(-1);
         advertiseRecordService.update(advertiseRecord);
