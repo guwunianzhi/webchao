@@ -13,6 +13,8 @@ export default {
     menuMgr: '菜单管理',
     deptMgr: '部门管理',
     userMgr: '用户管理',
+    userInfoMgr:"用户信息管理",
+    adMgr: '广告信息',
     roleMgr: '角色管理',
     taskMgr: '任务管理',
     taskLog: '任务日志',

@@ -54,6 +54,21 @@
     <el-row>
       <el-col :span="24">
         <div class="chart section">
+          <a>
+            用户：于洋
+            <br/>
+            广告投放开始时间：2010-07-18
+            <br/>
+            广告投放结束时间：2018-01-19
+          </a>
+        </div>
+      </el-col>
+    </el-row>
+
+
+    <!-- <el-row>
+      <el-col :span="24">
+        <div class="chart section">
         <v-chart :options="lineData"/>
         </div>
       </el-col>
@@ -113,7 +128,7 @@
           </el-collapse-item>
         </el-collapse>
       </el-col>
-    </el-row>
+    </el-row> -->
   </div>
 </template>
 

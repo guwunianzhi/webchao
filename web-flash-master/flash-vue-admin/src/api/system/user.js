@@ -8,6 +8,22 @@ export function getList(params) {
   })
 }
 
+export function getUserList(params) {
+  return request({
+    url: '/user/getUserList',
+    method: 'get',
+    params
+  })
+}
+
+export function getAdList(params) {
+  return request({
+    url: '/user/getAdList',
+    method: 'get',
+    params
+  })
+}
+
 export function saveUser(params) {
   return request({
     url: '/user',

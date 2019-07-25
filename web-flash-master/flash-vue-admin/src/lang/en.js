@@ -6,6 +6,8 @@ export default {
     menuMgr: 'Menu',
     deptMgr: 'Department',
     userMgr: 'Account',
+    userInfoMgr: 'UserInfo',
+    adMgr: 'ad',
     roleMgr: 'Role',
     taskMgr: 'Cron',
     taskLog: 'Cron Log',

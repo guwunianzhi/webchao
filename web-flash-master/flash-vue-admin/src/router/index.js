@@ -125,6 +125,22 @@ export const asyncRouterMap = [
         meta: {
           title: 'configMgr'
         }
+      },
+      {
+        path: 'userInfo',
+        name: 'Config',
+        component: () => import('@/views/system/userInfo/index'),
+        meta: {
+          title: 'userInfoMgr'
+        }
+      },
+      {
+        path: 'ad',
+        name: 'Config',
+        component: () => import('@/views/system/ad/index'),
+        meta: {
+          title: 'adMgr'
+        }
       }
     ]
   },
