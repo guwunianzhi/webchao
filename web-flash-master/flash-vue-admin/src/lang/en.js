@@ -1,7 +1,7 @@
 export default {
   route: {
     dashboard: 'Dashboard',
-    systemMgr: 'System',
+    systemMgr: 'AdvertiseSystem',
     optionMgr: 'Option',
     menuMgr: 'Menu',
     deptMgr: 'Department',

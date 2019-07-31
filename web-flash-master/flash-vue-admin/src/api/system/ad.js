@@ -14,21 +14,28 @@ export function getADList(params) {
     method: 'post',
     params
   })
-  
 }
 
 export function save(params) {
   return request({
-    url: '/ad',
+    url: '/advertise/add',
     method: 'post',
     params
   })
 }
 
+// export function save(params) {
+//   return request({
+//     url: '/ad',
+//     method: 'post',
+//     params
+//   })
+// }
+
 
 export function update(params) {
   return request({
-    url: '/ad',
+    url: '/advertise/update',
     method: 'put',
     params
   })
@@ -36,7 +43,7 @@ export function update(params) {
 
 export function remove(id) {
   return request({
-    url: '/ad',
+    url: '/advertise/delete',
     method: 'delete',
     params: {
       id:id

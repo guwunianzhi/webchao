@@ -1,6 +1,7 @@
-import { remove, getList, save, update } from '@/api/system/dict'
+import { getList } from '@/api/system/dict'
 import { getUserList,getAdList } from '@/api/system/user'
-import { getADList } from '@/api/system/ad'
+import { getADList, save, remove, update } from '@/api/system/ad'
+import { parseTime } from '@/utils/index'
 
 export default {
   data() {
@@ -12,14 +13,16 @@ export default {
       permissons: [],
       permissonVisible: false,
       form: {
+        adName: '',
         clinetId: '',
         clientName: '',
         clientPhone: '',
+        source: '',
         startTime: '',
         endTime: ''
       },
       rules: {
-        name: [
+        clientName: [
           { required: true, message: '请输入字典名称', trigger: 'blur' },
           { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
         ]
@@ -93,9 +96,11 @@ export default {
     },
     resetForm() {
       this.form = {
+        adName: '',
         clinetId: '',
         clientName: '',
         clientPhone: '',
+        source: '',
         startTime: '',
         endTime: ''
       }
@@ -110,15 +115,32 @@ export default {
       var self = this
       this.$refs['form'].validate((valid) => {
         if (valid) {
-          form.beginTime = parseTime(form.beginTime, '{y}-{m}-{d}')
-          var dictName = self.form.name
-          var dictValues = ''
-          for (var key in self.form.details) {
-            var item = self.form.details[key]
-            dictValues += item['key'] + ':' + item['value'] + ';'
-          }
-          if (this.form.id !== '') {
-            update({ id: self.form.id, dictName: dictName, dictValues: dictValues }).then(response => {
+          var form = self.form
+          form.startTime = parseTime(form.startTime, '{y}-{m}-{d}')
+          form.endTime = parseTime(form.endTime, '{y}-{m}-{d}')
+          form.status = '1'
+          // var dictName = self.form.clientName
+          // var dictValues = ''
+          // for (var key in self.form.details) {
+            // var item = self.form.details[key]
+            // dictValues += item['key'] + ':' + item['value'] + ';'
+          // }
+          
+          // self.form.clientPhone = '1353232432'
+          self.form.clinetId = 1
+          console.log(form)
+          // if (this.form.clinetId !== '') {
+          //   update({ id: self.form.id, dictName: dictName, dictValues: dictValues }).then(response => {
+          //     this.$message({
+          //       message: '提交成功',
+          //       type: 'success'
+          //     })
+          //     self.fetchData()
+          //     self.formVisible = false
+          //   })
+          // } else {
+            // clientName: this.form.clientName,  startTime: this.form.startTime, endTime: this.form.endTime
+            save( form ).then(response => {
               this.$message({
                 message: '提交成功',
                 type: 'success'
@@ -126,16 +148,7 @@ export default {
               self.fetchData()
               self.formVisible = false
             })
-          } else {
-            save({ dictName: dictName, dictValues: dictValues }).then(response => {
-              this.$message({
-                message: '提交成功',
-                type: 'success'
-              })
-              self.fetchData()
-              self.formVisible = false
-            })
-          }
+          // }
         } else {
           return false
         }

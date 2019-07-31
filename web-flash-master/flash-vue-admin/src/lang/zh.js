@@ -1,7 +1,7 @@
 export default {
   route: {
     dashboard: '首页',
-    systemMgr: '系统管理',
+    systemMgr: '广告系统管理',
     optionMgr: '运维管理',
     cmsMgr: 'CMS管理',
     bannerMgr: 'banner管理',
